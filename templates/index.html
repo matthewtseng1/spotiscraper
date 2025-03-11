@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Playlist Scraper</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
     <h1>Spotify Playlist Scraper</h1>
@@ -16,6 +17,11 @@
 
     {% if tracks %}
         <h2>Playlist: {{ playlist_name }}</h2>
+        
+        {% if playlist_cover %}
+            <img src="{{ playlist_cover }}" alt="Playlist Cover" class="playlist-cover">
+        {% endif %}
+
         <table>
             <tr>
                 <th>#</th>
@@ -42,6 +48,7 @@
                 </tr>
             {% endfor %}
         </table>
+        <a href="/download" class="download-btn">Download CSV</a>
     {% endif %}
 </body>
 </html>

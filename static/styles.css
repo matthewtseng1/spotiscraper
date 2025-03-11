@@ -36,3 +36,44 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.download-btn {
+  background-color: #28a745; /* Green */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+  transition: transform 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #218838;
+  transition: scale(1.1);
+  transition: 0.3s;
+}
+
+
+.playlist-cover {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 0px;
+  padding-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+.playlist-cover:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+
+
+
+
+
