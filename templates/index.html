@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Playlist Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Spotify Playlist Scraper</h1>
+    <form method="POST">
+        <label for="playlist_url">Enter Playlist URL:</label>
+        <input type="text" name="playlist_url" required>
+        <button type="submit">Fetch Playlist</button>
+    </form>
+
+    {% if tracks %}
+        <h2>Playlist: {{ playlist_name }}</h2>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Song Name</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Duration (s)</th>
+                <th>Popularity</th>
+                <th>Release Date</th>
+                <th>Track URL</th>
+                <th>Explicit</th>
+            </tr>
+            {% for track in tracks %}
+                <tr>
+                    <td>{{ track[0] }}</td>
+                    <td>{{ track[1] }}</td>
+                    <td>{{ track[2] }}</td>
+                    <td>{{ track[3] }}</td>
+                    <td>{{ track[4] }}</td>
+                    <td>{{ track[5] }}</td>
+                    <td>{{ track[6] }}</td>
+                    <td><a href="{{ track[7] }}" target="_blank">Listen</a></td>
+                    <td>{{ "Yes" if track[8] else "No" }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
